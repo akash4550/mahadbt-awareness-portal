@@ -24,5 +24,5 @@ app.use('/api/form', require('./routes/form'));
 app.use('/api/community', require('./routes/community'));
 
 const server = app.listen(PORT, () => {
-    console.log(`Backend server running on port ${server.address().port}`);
+    console.log(`Backend server running on port ${PORT}`);
 });
