@@ -7,7 +7,7 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import DBTHealthCheck from './components/DBTHealthCheck';
-import Quiz from './components/Quiz';
+// import Quiz from './components/Quiz';
 import ResourceLocator from './components/ResourceLocator';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
