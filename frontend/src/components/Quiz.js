@@ -11,7 +11,7 @@ const Quiz = () => {
     const token = localStorage.getItem('token');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/quiz')
+        axios.get('/api/quiz')
             .then(res => setQuestions(res.data))
             .catch(err => {
                 console.error("Quiz fetch error:", err);
@@ -38,7 +38,7 @@ const Quiz = () => {
 
         try {
             const config = { headers: { 'x-auth-token': token } };
-            const res = await axios.post('http://localhost:5000/api/submit-quiz', { answers: Object.values(answers) }, config);
+            const res = await axios.post('/api/submit-quiz', { answers: Object.values(answers) }, config);
             setResults(res.data.results);
             setScore(res.data.score);
             setShowRetake(true);

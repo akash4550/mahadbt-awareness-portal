@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Dashboard.css';
 // import DocumentChecker from './DocumentChecker';
 import { useNavigate } from 'react-router-dom';
+import Chatbot from './Chatbot';
 
 
 
@@ -23,7 +24,7 @@ const Dashboard = () => {
         try {
             const token = localStorage.getItem('token');
             const config = { headers: { 'x-auth-token': token }, responseType: 'blob' };
-            const res = await axios.get('http://localhost:5000/api/form/generate', config);
+            const res = await axios.get('/api/form/generate', config);
             const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -47,7 +48,7 @@ const Dashboard = () => {
             if (!token) { setLoading(false); window.location.href = '/login'; return; }
             try {
                 const config = { headers: { 'x-auth-token': token } };
-                const res = await axios.get('http://localhost:5000/api/auth/user', config);
+                const res = await axios.get('/api/auth/user', config);
                 setUser(res.data);
             } catch (err) {
                 console.error('Failed to fetch user data:', err);
@@ -77,6 +78,10 @@ const Dashboard = () => {
             <main className="dashboard-main">
                 <section className="dashboard-section">
                     <h2>Your Personalized Action Plan</h2>
+                    <section className="video1">
+                      <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/V64Ron0EdSs?si=SkSetttGzKUI1J7K&amp;start=31" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                    </section>
+                       
                     <ul className="checklist">
                         <li className="completed">
                             <span className="icon">✅</span><span className="text">Account Created</span>
@@ -101,6 +106,27 @@ const Dashboard = () => {
                             }
                         </li>
                     </ul>
+
+                     <button
+                style={{
+                    position: 'fixed',
+                    bottom: '32px',
+                    right: '32px',
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #4f8cff 60%, #00e6c3 100%)',
+                    color: 'white',
+                    fontSize: '2rem',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    zIndex: 1000
+                }}
+                aria-label="Open Chatbot"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot'))}
+            >🤖</button>
+            <Chatbot />
                 </section>
             </main>
            

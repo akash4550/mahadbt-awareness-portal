@@ -17,7 +17,7 @@ const DBTHealthCheck = () => {
             if (token) {
                 try {
                     const config = { headers: { 'x-auth-token': token } };
-                    await axios.post('http://localhost:5000/api/update-dbt-check', {}, config);
+                    await axios.post('/api/update-dbt-check', {}, config);
                     
                     finalStatus += " Your progress has been saved.";
                     setStatus(finalStatus);

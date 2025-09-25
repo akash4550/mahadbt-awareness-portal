@@ -12,7 +12,7 @@ const CommentSection = ({ post, token, onCommentAdded }) => {
         if (!comment) return;
         try {
             const config = { headers: { 'x-auth-token': token } };
-            await axios.post(`http://localhost:5000/api/community/posts/${post._id}/comments`, { content: comment }, config);
+            await axios.post(`/api/community/posts/${post._id}/comments`, { content: comment }, config);
             setComment('');
             onCommentAdded();
         } catch (err) {
@@ -57,7 +57,7 @@ const Community = () => {
 
     const fetchPosts = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/community/posts');
+            const res = await axios.get('/api/community/posts');
             setPosts(res.data);
         } catch (err) {
             setError('Could not load community posts.');
@@ -75,7 +75,7 @@ const Community = () => {
         if (!title || !content) return alert('Please fill in both title and content.');
         try {
             const config = { headers: { 'x-auth-token': token } };
-            await axios.post('http://localhost:5000/api/community/posts', { title, content }, config);
+            await axios.post('/api/community/posts', { title, content }, config);
             setTitle('');
             setContent('');
             fetchPosts();

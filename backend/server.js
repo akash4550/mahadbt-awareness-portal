@@ -9,7 +9,26 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const allowedOrigins = [
+  'https://dbt-mitra.netlify.app',
+  'https://68d2206223fa0d098efee478--dbt-mitra.netlify.app',
+  'http://localhost:3000', // For local development
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
+
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URI)
