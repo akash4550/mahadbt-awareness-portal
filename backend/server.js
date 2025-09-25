@@ -31,9 +31,13 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_URI)
+if (!process.env.MONGO_URI) {
+    console.warn('Warning: MONGO_URI is not set. Backend will start, but DB operations will fail.');
+}
+
+mongoose.connect(process.env.MONGO_URI, { dbName: process.env.MONGO_DB || undefined })
     .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log('MongoDB Connection Error: ', err));
+    .catch(err => console.error('MongoDB Connection Error:', err.message));
 
 app.get('/', (req, res) => res.send('Backend server is running!'));
 
