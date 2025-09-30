@@ -9,7 +9,7 @@ const QuizPage = () => {
         <div>
             <Header />
             <main>
-                {/* The Quiz component now lives on its own dedicated page */}
+               
                 <Quiz />
             </main>
             <Chatbot />
