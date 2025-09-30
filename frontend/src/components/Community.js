@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import client from '../api/client';
-// import { Link } from 'react-router-dom';
+
 import Header from './Header';
 import Chatbot from './Chatbot';
 
@@ -126,7 +126,7 @@ const Community = () => {
                     </div>
                 </section>
             </main>
-            {/* Floating Chatbot Button */}
+           
             <button
                 style={{
                     position: 'fixed',
