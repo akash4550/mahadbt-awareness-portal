@@ -10,7 +10,7 @@ const DocumentChecker = () => {
     const handleImageChange = (e) => {
         if (e.target.files[0]) {
             setImage(URL.createObjectURL(e.target.files[0]));
-            setResult(null); // Reset result when new image is chosen
+            setResult(null); 
         }
     };
 
@@ -32,7 +32,7 @@ const DocumentChecker = () => {
         });
 
         setIsLoading(false);
-        // Simple analysis: If confidence is high and it finds some words, it's likely legible.
+       
         if (data.confidence > 70 && data.words.length > 5) {
             setResult({
                 legible: true,
