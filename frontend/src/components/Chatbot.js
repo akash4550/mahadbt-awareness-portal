@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 
-// Module-level constant to keep dependencies stable across renders
+
 const FAQS = [
         {
             keywords: ["lost aadhaar", "forgot aadhaar", "missing aadhaar", "reissue"],
@@ -96,7 +96,7 @@ const Chatbot = () => {
     const getBotResponse = (input) => {
         const sanitizedInput = input.toLowerCase().trim();
         const inputWords = sanitizedInput.split(/\s+/);
-        const scores = {}; // To store scores for each FAQ index
+        const scores = {}; 
 
        
         inputWords.forEach(word => {
@@ -107,7 +107,7 @@ const Chatbot = () => {
             }
         });
 
-        // Find the FAQ with the highest score
+   
         let bestMatchIndex = -1;
         let maxScore = 0;
         for (const faqIndex in scores) {
@@ -117,7 +117,6 @@ const Chatbot = () => {
             }
         }
         
-        // If a good match is found, return a random answer from that FAQ
         if (bestMatchIndex !== -1) {
             const answers = FAQS[bestMatchIndex].answers;
             return answers[Math.floor(Math.random() * answers.length)];
@@ -131,22 +130,20 @@ const Chatbot = () => {
 
         const userMessage = { text: userInput, sender: 'user' };
         setMessages(prevMessages => [...prevMessages, userMessage]);
-        setIsTyping(true); // Bot starts "typing"
+        setIsTyping(true); 
         
-        // Get response using the improved logic
+  
         const botResponseText = getBotResponse(userInput);
 
-        // Simulate bot thinking time
         setTimeout(() => {
             const botMessage = { text: botResponseText, sender: 'bot' };
             setMessages(prevMessages => [...prevMessages, botMessage]);
-            setIsTyping(false); // Bot finishes "typing"
+            setIsTyping(false); 
         }, 800);
 
         setUserInput('');
     };
 
-    // Auto-scroll to the latest message
     useEffect(() => {
         if (chatboxBodyRef.current) {
             chatboxBodyRef.current.scrollTop = chatboxBodyRef.current.scrollHeight;
@@ -176,7 +173,7 @@ const Chatbot = () => {
                         {messages.map((msg, index) => (
                             <div key={index} className={`chat-message ${msg.sender}`}>{msg.text}</div>
                         ))}
-                        {/* **NEW**: Typing indicator */}
+                       
                         {isTyping && <div className="chat-message bot typing-indicator"><span></span><span></span><span></span></div>}
                     </div>
 
