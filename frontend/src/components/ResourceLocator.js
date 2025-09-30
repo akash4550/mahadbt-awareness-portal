@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ResourceLocator = () => {
-    // This is the corrected Google Maps search URL
+   
     const googleMapsUrl = `https://www.google.com/maps/search/`;
 
     return (
