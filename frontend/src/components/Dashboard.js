@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import client from '../api/client';
 import './Dashboard.css';
-// import DocumentChecker from './DocumentChecker';
+
 import { useNavigate } from 'react-router-dom';
 import Chatbot from './Chatbot';
 
