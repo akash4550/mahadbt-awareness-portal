@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import client from '../api/client';
 
 const DBTHealthCheck = () => {
     const [status, setStatus] = useState('');
@@ -17,7 +17,7 @@ const DBTHealthCheck = () => {
             if (token) {
                 try {
                     const config = { headers: { 'x-auth-token': token } };
-                    await axios.post('/api/update-dbt-check', {}, config);
+                    await client.post('/api/update-dbt-check', {}, config);
                     
                     finalStatus += " Your progress has been saved.";
                     setStatus(finalStatus);

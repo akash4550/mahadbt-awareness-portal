@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import client from '../api/client';
 import './Dashboard.css';
 // import DocumentChecker from './DocumentChecker';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +24,7 @@ const Dashboard = () => {
         try {
             const token = localStorage.getItem('token');
             const config = { headers: { 'x-auth-token': token }, responseType: 'blob' };
-            const res = await axios.get('/api/form/generate', config);
+            const res = await client.get('/api/form/generate', config);
             const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -48,7 +48,7 @@ const Dashboard = () => {
             if (!token) { setLoading(false); window.location.href = '/login'; return; }
             try {
                 const config = { headers: { 'x-auth-token': token } };
-                const res = await axios.get('/api/auth/user', config);
+                const res = await client.get('/api/auth/user', config);
                 setUser(res.data);
             } catch (err) {
                 console.error('Failed to fetch user data:', err);
@@ -79,7 +79,7 @@ const Dashboard = () => {
                 <section className="dashboard-section">
                     <h2>Your Personalized Action Plan</h2>
                     <section className="video1">
-                      <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/V64Ron0EdSs?si=SkSetttGzKUI1J7K&amp;start=31" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                      <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/V64Ron0EdSs?si=SkSetttGzKUI1J7K&amp;start=31" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
                     </section>
                        
                     <ul className="checklist">
