@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Centralized HTTP client
+
 const baseURL =
   process.env.REACT_APP_API_BASE ||
   (window.location.hostname === 'localhost'
