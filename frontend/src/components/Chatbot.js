@@ -1,22 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 
-const Chatbot = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([
-        { text: 'Hello! I am DBT Sahayak. How can I help you understand Aadhaar and DBT today?', sender: 'bot' }
-    ]);
-    const [userInput, setUserInput] = useState('');
-    const [isTyping, setIsTyping] = useState(false);
-    const chatboxBodyRef = useRef(null);
-
-    useEffect(() => {
-        const openHandler = () => setIsOpen(true);
-        window.addEventListener('open-chatbot', openHandler);
-        return () => window.removeEventListener('open-chatbot', openHandler);
-    }, []);
-    
-    
-    const faqs = [
+// Module-level constant to keep dependencies stable across renders
+const FAQS = [
         {
             keywords: ["lost aadhaar", "forgot aadhaar", "missing aadhaar", "reissue"],
             answers: ["If you have lost your Aadhaar card, you can download an e-Aadhaar from the UIDAI website.", "Visit an Aadhaar Enrollment Center to reissue your Aadhaar card if lost.", "You can use your Aadhaar number or enrollment ID to retrieve your details online."]
@@ -79,17 +64,33 @@ const Chatbot = () => {
         }
     ];
 
+const Chatbot = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState([
+        { text: 'Hello! I am DBT Sahayak. How can I help you understand Aadhaar and DBT today?', sender: 'bot' }
+    ]);
+    const [userInput, setUserInput] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
+    const chatboxBodyRef = useRef(null);
+
+    useEffect(() => {
+        const openHandler = () => setIsOpen(true);
+        window.addEventListener('open-chatbot', openHandler);
+        return () => window.removeEventListener('open-chatbot', openHandler);
+    }, []);
+    
+
    
     const keywordMap = useMemo(() => {
         const map = new Map();
-        faqs.forEach((faq, index) => {
+        FAQS.forEach((faq, index) => {
             faq.keywords.forEach(keyword => {
                 
                 map.set(keyword, index);
             });
         });
         return map;
-    }, [faqs]);
+    }, []);
 
 
     const getBotResponse = (input) => {
@@ -118,7 +119,7 @@ const Chatbot = () => {
         
         // If a good match is found, return a random answer from that FAQ
         if (bestMatchIndex !== -1) {
-            const answers = faqs[bestMatchIndex].answers;
+            const answers = FAQS[bestMatchIndex].answers;
             return answers[Math.floor(Math.random() * answers.length)];
         }
 
