@@ -23,7 +23,7 @@ const DBTHealthCheck = () => {
                     setStatus(finalStatus);
                     
                     alert("Progress saved! Redirecting to your dashboard.");
-                    window.location.href = '/dashboard'; // <-- This is the crucial missing line
+                    window.location.href = '/dashboard';
 
                 } catch (err) {
                     console.error("Could not save progress:", err);
