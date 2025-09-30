@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
   'https://dbt-mitra.netlify.app',
-  'https://68d2206223fa0d098efee478--dbt-mitra.netlify.app',
+  'https://68d5270420b9f80008d382bf--dbt-mitra.netlify.app',
   'http://localhost:3000', // For local development
 ];
 
