@@ -61,7 +61,6 @@ This project is deployed using **Netlify**.
 
 ## 📸 Screenshots
 
-> Add screenshots of your project here for better visualization.
 
 * **Homepage**
   <img width="1698" height="955" alt="image" src="https://github.com/user-attachments/assets/f5d0e764-f4d9-467f-ae04-cf3f3bf405d5" />
