@@ -104,23 +104,15 @@ Open `http://localhost:3000` in your browser and you're good to go!
 
 ## 📸 Screenshots
 
-<details>
-<summary><strong>🏠 Homepage</strong></summary>
-<br/>
 
-![Homepage](https://private-user-images.githubusercontent.com/177309090/495747523-f5d0e764-f4d9-467f-ae04-cf3f3bf405d5.png)
+* **Homepage**
+  <img width="1698" height="955" alt="image" src="https://github.com/user-attachments/assets/f5d0e764-f4d9-467f-ae04-cf3f3bf405d5" />
 
-</details>
 
-<details>
-<summary><strong>📋 Scholarship Info Pages</strong></summary>
-<br/>
+* **Scholarship Info Page**
+<img width="1731" height="978" alt="image" src="https://github.com/user-attachments/assets/2a1e3f3a-17f2-4309-b7ba-6c8bd08ae364" />
+<img width="1783" height="964" alt="image" src="https://github.com/user-attachments/assets/7641c56e-fb37-4fba-b585-1a76bf44265f" />
 
-![Scholarship Info](https://private-user-images.githubusercontent.com/177309090/495747919-2a1e3f3a-17f2-4309-b7ba-6c8bd08ae364.png)
-
-![Scholarship Details](https://private-user-images.githubusercontent.com/177309090/495748355-7641c56e-fb37-4fba-b585-1a76bf44265f.png)
-
-</details>
 
 ---
 
