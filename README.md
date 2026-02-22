@@ -167,11 +167,7 @@ For major changes, please open an issue first to discuss the idea. Let's build t
 
 ---
 
-## 📄 License
 
-This project is open-source under the [MIT License](LICENSE). Feel free to fork, adapt, and share.
-
----
 
 ## 👨‍💻 Author
 
